@@ -1,6 +1,6 @@
 # spring-boot-with-graphql
 
-### Steps
+### Steps to start the application
 
 * `mvn package` - produces artifact and build a docker image
 
