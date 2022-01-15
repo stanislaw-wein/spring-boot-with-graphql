@@ -3,6 +3,9 @@ version: "3"
 services:
   api-service:
     image: spring-boot-with-graphql
+    build:
+      context: .
+      dockerfile: Dockerfile
     networks:
       - spring-boot-with-graphql-network
     ports:
@@ -11,8 +14,7 @@ services:
       - mongodb-database
 
   mongodb-database:
-    image: mongo:4.4.4
-    container_name: mongodb-database
+    image: mongo:5.0.5
     networks:
       - spring-boot-with-graphql-network
     ports:
