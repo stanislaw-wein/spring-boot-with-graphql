@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @AllArgsConstructor
-@RequestMapping(produces = MediaType.ALL_VALUE, consumes = MediaType.ALL_VALUE)
+@RequestMapping(path = "/api")
 public class ArticleController {
     private final ArticleRepository articleRepository;
 

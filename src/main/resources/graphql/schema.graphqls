@@ -1,0 +1,16 @@
+type Article {
+    id: ID!
+    title: String!
+    text: String!
+    thumbnail: String
+    comments: [Comment]
+}
+
+type Comment {
+    id: ID!
+    text: String!
+}
+
+type Query {
+    getArticles: [Article]
+}

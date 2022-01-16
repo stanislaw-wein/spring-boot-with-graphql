@@ -9,7 +9,7 @@ services:
     networks:
       - spring-boot-with-graphql-network
     ports:
-      - 8080:8080
+      - "8080:8080"
     depends_on:
       - mongodb-database
 
@@ -18,11 +18,11 @@ services:
     networks:
       - spring-boot-with-graphql-network
     ports:
-      - 27017:27017
+      - "27017:27017"
     environment: # don't commit credentials to git
       - MONGO_INITDB_ROOT_USERNAME=user
       - MONGO_INITDB_ROOT_PASSWORD=password
-      - MONGO_INITDB_DATABASE=test
+      - MONGO_INITDB_DATABASE=test-graphql-db
 
 networks:
   spring-boot-with-graphql-network:

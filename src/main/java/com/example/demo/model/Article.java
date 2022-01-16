@@ -13,5 +13,8 @@ public class Article {
     @Id
     private String id;
     private String title;
+    private String text;
+    private String thumbnail;
     private List<Comment> comments;
+
 }

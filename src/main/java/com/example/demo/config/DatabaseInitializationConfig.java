@@ -30,6 +30,7 @@ public class DatabaseInitializationConfig {
     private static Article buildArticle(final String title) {
         return Article.builder()
                 .title(title)
+                .text("Text")
                 .comments(Collections.emptyList())
                 .build();
     }
