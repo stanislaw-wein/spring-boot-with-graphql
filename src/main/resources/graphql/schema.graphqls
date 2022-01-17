@@ -1,16 +1,17 @@
 type Article {
-    id: ID!
-    title: String!
-    text: String!
+    id: ID
+    title: String
+    text: String
     thumbnail: String
     comments: [Comment]
 }
 
 type Comment {
-    id: ID!
-    text: String!
+    text: String
 }
 
 type Query {
     getArticles: [Article]
+    getArticle(id: ID): Article
+    getArticleComments(id: ID): [Comment]
 }
