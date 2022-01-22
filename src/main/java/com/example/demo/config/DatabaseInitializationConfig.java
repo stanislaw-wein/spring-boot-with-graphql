@@ -1,10 +1,11 @@
 package com.example.demo.config;
 
 import com.example.demo.model.Article;
+import com.example.demo.model.Comment;
 import com.example.demo.repository.ArticleRepository;
+import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -17,20 +18,20 @@ import java.util.stream.IntStream;
 @Slf4j
 @Component
 public class DatabaseInitializationConfig {
-
+    private final Faker faker = new Faker();
     private final ArticleRepository articleRepository;
 
     @PostConstruct
     public void initDatabase() {
         log.info("Starting database initialization");
-        IntStream.range(1, 10).forEach(i -> articleRepository.save(buildArticle("The Article Number: " + i)));
+        IntStream.range(1, 10).forEach(i -> articleRepository.save(buildArticle()));
     }
 
-    private static Article buildArticle(final String title) {
+    private Article buildArticle() {
         return Article.builder()
-                .title(title)
-                .text("Text")
-                .comments(Collections.emptyList())
+                .title(faker.book().title())
+                .text(faker.chuckNorris().fact())
+                .comments(Collections.singletonList(new Comment(faker.cat().name())))
                 .build();
     }
 }
