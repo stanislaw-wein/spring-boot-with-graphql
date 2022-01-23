@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Component
-public class ArticleResolver implements GraphQLQueryResolver {
+public class ArticleQueryResolver implements GraphQLQueryResolver {
     private ArticleRepository articleRepository;
 
     public Optional<Article> getArticle(final String articleId) {
@@ -21,5 +21,4 @@ public class ArticleResolver implements GraphQLQueryResolver {
     public List<Article> getArticles() {
         return articleRepository.findAll();
     }
-
 }

@@ -12,12 +12,21 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Component
-public class CommentResolver implements GraphQLQueryResolver {
+public class CommentQueryResolver implements GraphQLQueryResolver {
     private ArticleRepository articleRepository;
 
     public Optional<List<Comment>> getArticleComments(final String articleId) {
         return articleRepository
                 .findById(articleId)
                 .map(Article::getComments);
+    }
+
+    public Article addComment(final String articleId, final String text) {
+        return articleRepository.findById(articleId)
+                .map(article -> {
+                    article.getComments().add(new Comment(text));
+                    return articleRepository.save(article);
+                })
+                .orElseThrow();
     }
 }
