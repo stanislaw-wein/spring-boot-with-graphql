@@ -12,6 +12,11 @@ type Comment {
 
 type Query {
     getArticles: [Article]
-    getArticle(id: ID): Article
-    getArticleComments(id: ID): [Comment]
+    getArticle(articleId: ID!): Article
+    getArticleComments(articleId: ID!): [Comment]
+}
+
+type Mutation {
+    addArticle(title: String!, text: String!, thumbnail: String): Article
+    addComment(articleId: ID!, text: String!) : Article
 }
