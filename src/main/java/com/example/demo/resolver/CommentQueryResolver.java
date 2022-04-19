@@ -20,13 +20,4 @@ public class CommentQueryResolver implements GraphQLQueryResolver {
                 .findById(articleId)
                 .map(Article::getComments);
     }
-
-    public Article addComment(final String articleId, final String text) {
-        return articleRepository.findById(articleId)
-                .map(article -> {
-                    article.getComments().add(new Comment(text));
-                    return articleRepository.save(article);
-                })
-                .orElseThrow();
-    }
 }
