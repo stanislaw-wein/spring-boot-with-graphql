@@ -14,12 +14,12 @@ services:
       - mongodb-database
 
   mongodb-database:
-    image: mongo:5.0.5
+    image: mongo:5.0.7
     networks:
       - spring-boot-with-graphql-network
     ports:
       - "27017:27017"
-    environment: # don't commit credentials to git
+    environment: # never commit credentials to git
       - MONGO_INITDB_ROOT_USERNAME=user
       - MONGO_INITDB_ROOT_PASSWORD=password
       - MONGO_INITDB_DATABASE=test-graphql-db
