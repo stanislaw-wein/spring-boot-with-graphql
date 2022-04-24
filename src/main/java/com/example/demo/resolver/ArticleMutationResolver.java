@@ -17,11 +17,12 @@ public class ArticleMutationResolver implements GraphQLMutationResolver {
 
     public Article addArticle(final String title, final String text, final String thumbnail) {
         log.info("Add article: {}, {}, {}", title, text, thumbnail);
-        return articleRepository.save(Article.builder()
-                                             .title(title)
-                                             .text(text)
-                                             .thumbnail(thumbnail)
-                                             .comments(new ArrayList<>())
-                                             .build());
+        return articleRepository
+                .save(Article.builder()
+                             .title(title)
+                             .text(text)
+                             .thumbnail(thumbnail)
+                             .comments(new ArrayList<>())
+                             .build());
     }
 }

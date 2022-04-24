@@ -17,7 +17,7 @@ public class ArticleQueryResolver implements GraphQLQueryResolver {
     private ArticleRepository articleRepository;
 
     public Optional<Article> getArticle(final String articleId) {
-        log.info("Get article: {}", articleId);
+        log.info("Get article by ID: {}", articleId);
         return articleRepository.findById(articleId);
     }
 

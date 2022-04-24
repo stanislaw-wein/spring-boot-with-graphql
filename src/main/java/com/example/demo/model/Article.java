@@ -15,5 +15,4 @@ public class Article {
     private String text;
     private String thumbnail;
     private List<Comment> comments;
-
 }
