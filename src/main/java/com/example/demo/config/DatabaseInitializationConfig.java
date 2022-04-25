@@ -22,7 +22,7 @@ public class DatabaseInitializationConfig {
     @PostConstruct
     public void initDatabase() {
         log.info("Starting database initialization");
-        IntStream.range(1, 10).forEach(i -> articleRepository.save(buildArticle()));
+        IntStream.range(1, 3).forEach(i -> articleRepository.save(buildArticle()));
     }
 
     private Article buildArticle() {
