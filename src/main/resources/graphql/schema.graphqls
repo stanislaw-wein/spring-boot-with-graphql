@@ -18,5 +18,5 @@ type Query {
 
 type Mutation {
     addArticle(title: String!, text: String!, thumbnail: String): Article
-    addComment(articleId: ID!, text: String!) : Article
+    addComment(articleId: ID, text: String!) : Article
 }
