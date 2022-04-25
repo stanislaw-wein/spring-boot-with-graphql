@@ -6,14 +6,12 @@ import com.example.demo.repository.ArticleRepository;
 import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
-@Profile("docker")
 @AllArgsConstructor
 @Slf4j
 @Component
@@ -29,9 +27,9 @@ public class DatabaseInitializationConfig {
 
     private Article buildArticle() {
         return Article.builder()
-                .title(faker.book().title())
-                .text(faker.chuckNorris().fact())
-                .comments(Collections.singletonList(new Comment(faker.cat().name())))
-                .build();
+                      .title(faker.book().title())
+                      .text(faker.chuckNorris().fact())
+                      .comments(Collections.singletonList(new Comment(faker.ancient().hero())))
+                      .build();
     }
 }
