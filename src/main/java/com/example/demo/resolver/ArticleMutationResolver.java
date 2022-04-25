@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-
 @Slf4j
 @AllArgsConstructor
 @Component
@@ -22,7 +20,6 @@ public class ArticleMutationResolver implements GraphQLMutationResolver {
                              .title(title)
                              .text(text)
                              .thumbnail(thumbnail)
-                             .comments(new ArrayList<>())
                              .build());
     }
 }
